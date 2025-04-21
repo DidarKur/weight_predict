@@ -84,8 +84,57 @@ def lp(details):
     return (y_pred[0])
 
 
+def recommend_diet(weight_category, gender):
+    gender = gender.lower()
+
+    if weight_category == 'Extremely Weak':
+        if gender == 'male':
+            return (
+                "You should increase your daily calorie intake by consuming calorie-dense and protein-rich foods such as lean meats, dairy products, peanut butter, and healthy oils. "
+                "Aim for 5-6 meals per day, and include strength training to help gain muscle mass.")
+        elif gender == 'female':
+            return (
+                "Focus on a calorie-rich diet with foods like nuts, dairy, whole grains, and healthy fats. Try to eat 5-6 times a day and include moderate resistance training to build healthy weight.")
+
+    elif weight_category == 'Weak':
+        if gender == 'male':
+            return (
+                "Increase your portions slightly and add more carbohydrates like rice, pasta, and whole grains. Include snacks like granola bars and yogurt. Don't forget to hydrate well.")
+        elif gender == 'female':
+            return (
+                "Aim for nutrient-dense meals including whole grains, beans, legumes, and eggs. Snack on nuts and fruits. Try to eat 4-5 meals a day and include light physical activity.")
+
+    elif weight_category == 'Normal':
+        return (
+            "Maintain a balanced diet that includes a variety of fruits, vegetables, lean proteins (like fish or chicken), whole grains, and healthy fats. "
+            "Drink enough water and engage in regular physical activity like walking or jogging.")
+
+    elif weight_category == 'OverWeight':
+        if gender == 'male':
+            return (
+                "Focus on portion control and choose high-fiber foods like vegetables, legumes, and oats. Avoid sugary drinks and processed snacks. Try to be physically active for at least 30 minutes a day.")
+        elif gender == 'female':
+            return (
+                "Include more vegetables, fruits, and lean proteins in your meals. Limit processed carbohydrates and sugary items. Consistent, moderate-intensity exercise like swimming or brisk walking is beneficial.")
+
+    elif weight_category == 'Obesity':
+        if gender == 'male':
+            return (
+                "Reduce your calorie intake with a focus on high-fiber, low-fat foods. Avoid fast food and sugary beverages. Consider tracking your meals and consulting a dietitian for support.")
+        elif gender == 'female':
+            return (
+                "Shift to a structured, portion-controlled diet. Focus on vegetables, legumes, whole grains, and low-fat dairy. Start with light exercise and gradually increase intensity.")
+
+    elif weight_category == 'Extremely Obese':
+        return (
+            "It's strongly recommended to consult a healthcare provider. A structured, medically supervised diet plan may be necessary. "
+            "Focus on natural, unprocessed foods, portion control, and begin with low-impact exercises like walking or water aerobics.")
+
+    else:
+        return "Invalid weight category or gender. Please check your input."
 g = input("gender:")
 h = int(input("height:"))
 w = int(input("weighgt:"))
 your_details = [g, h, w]
-print(lp(your_details))
+print("weight category:",lp(your_details))
+print("recommend_diet:",recommend_diet(lp(your_details),g))
